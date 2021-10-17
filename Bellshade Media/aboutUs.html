@@ -1,0 +1,406 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        .profile-card {
+            height: 100vh;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .our-team {
+            height: 350px;
+            padding: 25px 50px 0px 50px;
+            margin-bottom: 30px;
+            background-color: #f7f5ec;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .our-team .picture {
+            display: inline-block;
+            height: 130px;
+            width: 130px;
+            margin-bottom: 50px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .our-team .picture::before {
+            content: "";
+            width: 100%;
+            height: 0;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            bottom: 135%;
+            right: 0;
+            left: 0;
+            transform: scale(3);
+            transition: all 0.3s linear 0s;
+        }
+
+        .our-team:hover .picture::before {
+            height: 100%;
+        }
+
+        .our-team .picture::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .our-team .picture img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            transform: scale(1);
+            transition: all 0.9s ease 0s;
+        }
+
+        .our-team:hover .picture img {
+            box-shadow: 0 0 0 14px #6DB1A2;
+            transform: scale(0.7);
+        }
+
+        .our-team .title {
+            display: inline-block;
+            font-size: 15px;
+            color: #4e5052;
+            text-transform: capitalize;
+        }
+
+        .our-team .social {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: #fff;
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            transition: all 0.5s ease 0s;
+        }
+
+        .our-team:hover .social {
+            bottom: 0;
+        }
+
+        .our-team .social li {
+            display: inline-block;
+        }
+
+        .our-team .social li a {
+            display: block;
+            padding: 10px;
+            font-size: 17px;
+            color: #BFC0C0;
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+        }
+
+        .our-team .social li a:hover {
+            color: #6DB1A2;
+            background-color: #f7f5ec;
+        }
+    </style>
+
+    <style>
+        section {
+            width: 100%;
+            /*   skew adds a 4.76 degree slope and the translateY equation is based on the fact that a 4.76 degree slope has a gradient of 1:12 */
+            -webkit-transform: skew(0, -4.76deg) translateY(calc(50vw/-12));
+            -ms-transform: skew(0, -4.76deg) translateY(calc(50vw/-12));
+            transform: skew(0, -4.76deg) translateY(calc(50vw/-12));
+            /*   And finally we account for the slope to make sure each section can occupy the full window... I added 10vw just to give it a little extra padding */
+            min-height: calc(100vh - (110vw/-12));
+        }
+
+        section:not(:last-child) * {
+            -webkit-transform: skew(0, 4.76deg) translateY(calc(50vw/12));
+            -ms-transform: skew(0, 4.76deg) translateY(calc(50vw/12));
+            transform: skew(0, 4.76deg) translateY(calc(50vw/12));
+            margin-top: calc(50vw/-12);
+        }
+
+        section:last-child {
+            position: relative;
+            -webkit-transform: skew(0);
+            -ms-transform: skew(0);
+            transform: skew(0);
+            margin-top: calc(100vw/-12);
+            padding-top: calc(100vw/12);
+            min-height: 100vh;
+            z-index: -1;
+        }
+
+
+
+
+
+        /* COLORS AND OTHER STYLES TO ILLUSTRATE SECTIONS */
+        section:nth-child(1) {
+            background-color: #0E3854;
+        }
+
+        section:nth-child(2) {
+            background-color: #00A3FF;
+        }
+
+        section:nth-child(3) {
+            background-color: #FF8065;
+        }
+
+        section:nth-child(4) {
+            background-color: #C1E6FF;
+        }
+
+        section:nth-child(5) {
+            background-color: #6DB1A2;
+        }
+
+        section {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-weight: bolder;
+            font-size: 400%;
+            text-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .exploreLink,
+        .exploreLink:hover {
+            color: #6DB1A2;
+        }
+
+        .discoverLink,
+        .discoverLink:hover {
+            color: #C1E6FF;
+        }
+
+        .galleryLink,
+        .galleryLink:hover {
+            color: #0E3854;
+        }
+
+        .blogLink,
+        .blogLink:hover {
+            color: #00A3FF;
+        }
+
+        .allinLink,
+        .allinLink:hover {
+            color: #FF8065;
+        }
+
+        .section-container {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .team-content h3 {
+            font-weight: bold;
+        }
+
+        .teamHeader {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #levianthz {
+            background-color: #0E3854;
+        }
+
+        #averne {
+            background-color: #00A3FF;
+        }
+
+        #noel {
+            background-color: #FF8065;
+        }
+
+        #tonh {
+            background-color: #C1E6FF;
+        }
+
+        #levianthz h3,
+        #levianthz h4,
+        #averne h3,
+        #averne h4,
+        #noel h3,
+        #noel h4,
+        #tonh h3,
+        #tonh h4 {
+            color: #FFF;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: #AE67DE;">
+
+    <!-- Start:navbar -->
+    <div class="container-navbar">
+        <div class="navbar-menu">
+            <div class="navbar-label">Menu</div>
+            <div class="navbar-spacer"></div>
+            <div class="navbar-item"><span><a href="landingPage.html">Home</a></span></div>
+            <div class="navbar-item"><span><a href="">Profile</a></span></div>
+            <div class="navbar-item"><span><a href="">Join Us</a></span></div>
+            <div class="navbar-item"><span><a href="http://manh21.github.io/LumiFanpage" target="__blank">Lumi
+                        Only</a></span></div>
+            <div class="navbar-item"><span><a href="">Special Page</a></span></div>
+        </div>
+    </div>
+    <!-- End:navbar -->
+
+
+    <div class="section-container">
+        <section>
+            <h1>THE WORLD IS <br> YOURS TO <a href="explorePage.html" class="exploreLink">EXPLORE</a></h1>
+        </section>
+        <section>
+            <h1>DON'T BE AFRAID TO <br> BE LOST WHEN YOU <br><a href="discover.html" class="discoverLink">DISCOVER</a>
+                SOMETHING</h1>
+        </section>
+        <section>
+            <h1>SHARE YOUR MOMENTS <br> IN YOUR OWN <a href="profileGallery.html" class="galleryLink">GALLERY</a></h1>
+        </section>
+        <section>
+            <h1>EXPAND YOUR IMAGINATION <br> THROUGH <a href="profilePageBlog.html" class="blogLink">BLOG</a></h1>
+        </section>
+        <section>
+            <h1>TELL THE WORLD YOUR <br> THOUGHT IN <a href="profilePageAllin.html" class="allinLink">ALL IN ONE</a>
+            </h1>
+        </section>
+        <h1 class="teamHeader">OUR TEAM</h1>
+        <main class="profile-card ">
+            <div class="container-md">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="our-team" id="levianthz">
+                            <div class="picture">
+                                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">LEVIANTH</h3>
+                                <h4 class="title">Front-End Developer</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin"
+                                        aria-hidden="true"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="our-team" id="averne">
+                            <div class="picture">
+                                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">AVERNE</h3>
+                                <h4 class="title">Front-End Developer</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin"
+                                        aria-hidden="true"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="our-team" id="noel">
+                            <div class="picture">
+                                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">NOEL</h3>
+                                <h4 class="title">Back-End Developer</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin"
+                                        aria-hidden="true"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="our-team" id="tonh">
+                            <div class="picture">
+                                <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">TONH</h3>
+                                <h4 class="title">General</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-twitter"
+                                        aria-hidden="true"></a></li>
+                                <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-linkedin"
+                                        aria-hidden="true"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Start:Footer -->
+    <main class="footer-page">
+        <div class="footer-text">
+            <ul>
+                <li><a href="aboutUs.html">About</a></li>
+                <li><a href="">Discord</a></li>
+                <li><a href="">Donate</a></li>
+                <li><a href="">Help</a></li>
+                <li><a href="">© LumiFansite 2021</a></li>
+            </ul>
+        </div>
+        <div class="footer-cool-text">
+            <h1>LumiFansite<br />Developers Team</h1>
+        </div>
+        </m>
+        <!-- End:Footer -->
+</body>
+
+</html>

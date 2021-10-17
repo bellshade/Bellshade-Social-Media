@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Landing Page</title>
+
+    <script>
+        var handleScroll = function () {
+            var heroHeight = document.querySelector('#hero').offsetHeight;
+            var diagonal = document.querySelector('.hero-diagonal polygon');
+            var skew = (window.scrollY / heroHeight) * 100;
+            diagonal.setAttribute('points', [0, 100, 100, skew, 100, 100]);
+        }
+
+        window.addEventListener("scroll", handleScroll);
+    </script>
+
+</head>
+
+<body class="landingPageBody">
+
+
+    <!-- Start:navbar -->
+    <div class="container-navbar">
+        <div class="navbar-menu">
+            <div class="navbar-label">Menu</div>
+            <div class="navbar-spacer"></div>
+            <div class="navbar-item"><span><a href="#">Home</a></span></div>
+            <div class="navbar-item"><span><a href="">Profile</a></span></div>
+            <div class="navbar-item"><span><a href="">Join Us</a></span></div>
+            <div class="navbar-item"><span><a href="http://manh21.github.io/LumiFanpage" target="__blank">Lumi
+                        Only</a></span></div>
+            <div class="navbar-item"><span><a href="">Special Page</a></span></div>
+        </div>
+    </div>
+    <!-- End:navbar -->
+
+
+    <!-- Start:Jumbotron -->
+    <section class="hero-container" id="hero">
+        <div class="hero-grad"></div>
+        <svg class="hero-diagonal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="0,100 100,0 100,100"></polygon>
+        </svg>
+        <main class="hero-content">
+            <h1 class="heading-jumbotron">
+                Welcome To Bellshadeverse
+            </h1>
+            <div class='hero-scroll'></div>
+        </main>
+    </section>
+
+    <article class="article-content">
+        <p>Hello fellow Lumi lovers! Welcome to our awesome brand new Lumi fansite version 2.
+            I will explain a little about our new fansite. On our website you can see a lot of posts
+            from entourage and you can also post here too. You can choose a setup to post your content.
+            With gallery setup, you can only post a picture and will be displayed in Entourage-profile template.
+            There's also blog setup, with this setup you can write a story and upload a cover for your
+            story. In addition, we offer you all in one setup, just like the name you can post a picture
+            with a caption.
+        </p>
+    </article>
+    <!-- End:Jumbotron -->
+
+
+    <!-- Start:Panel Section -->
+    <section class="panel-section">
+        <div class="panels">
+            <div class="panels__container">
+                <a href="explorePage.html" class="panel">
+                    <div class="panel__content" style="background-image: url(assets/BExplores.jpg)">
+                        <h3 class=" panel__title">EXPLORE</h3>
+                    </div>
+                </a>
+                <a href="discover.html" class="panel">
+                    <div class="panel__content" style="background-image: url(assets/BDiscover.jpg)">
+                        <h3 class="panel__title">DISCOVER</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- End:Panel Section -->
+
+    <!-- Start:Entourage Profile -->
+    <section class="entourage-profile-container">
+        <h1 class="entourage-title-profile">ENTOURAGE PROFILE</h1>
+        <section class="Entourage-profile">
+            <div class="Entourage-profile-row"><a class="EntourageSection" onClick="openGallery(1)"
+                    id="EntourageSection-1">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/1)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(2)" id="EntourageSection-2">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/2)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(3)" id="EntourageSection-3">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/3)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a></div>
+            <div class="Entourage-profile-row"><a class="EntourageSection" onClick="openGallery(4)"
+                    id="EntourageSection-4">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/4)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(5)" id="EntourageSection-5">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/5)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(6)" id="EntourageSection-6">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/6)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a></div>
+            <div class="Entourage-profile-row"><a class="EntourageSection" onClick="openGallery(7)"
+                    id="EntourageSection-7">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/7)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(8)" id="EntourageSection-8">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/8)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a><a class="EntourageSection" onClick="openGallery(9)" id="EntourageSection-9">
+                    <div class="EntourageSection-thumb">
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-shadow"></div>
+                        <div class="EntourageSection-image" style="background-image: url(https://robohash.org/9)"></div>
+                    </div>
+                    <div class="EntourageSection-title"><span>Entourage Profile</span></div>
+                    <div class="EntourageSection-explore"><span>Explore 50 more</span></div><button
+                        class="EntourageSection-button">View
+                        more</button>
+                </a></div>
+        </section>
+        <section class="Gallery" id="gallery-1">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/1)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-2">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/2)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-3">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/3)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-4">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/4)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-5">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/5)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-6">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/6)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-7">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/7)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-8">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/8)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+        <section class="Gallery" id="gallery-9">
+            <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+            <div class="Gallery-images">
+                <div class="Gallery-left">
+                    <div class="Gallery-image"></div>
+                    <div class="Gallery-image"></div>
+                </div>
+                <div class="Gallery-image Gallery-image--primary" style="background-image: url(https://robohash.org/9)">
+                </div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+            <div class="Gallery-images">
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+                <div class="Gallery-image"></div>
+            </div>
+        </section>
+    </section>
+    <!-- End:Entourage Profile -->
+
+
+    <!-- Start:Footer -->
+    <section class="footer-page">
+        <div class="footer-text">
+            <ul>
+                <li><a href="aboutUs.html">About</a></li>
+                <li><a href="">Discord</a></li>
+                <li><a href="">Donate</a></li>
+                <li><a href="">Help</a></li>
+                <li><a href="">© LumiFansite 2021</a></li>
+            </ul>
+        </div>
+        <div class="footer-cool-text">
+            <h1>LumiFansite<br />Developers Team</h1>
+        </div>
+    </section>
+    <!-- End:Footer -->
+
+
+    <!-- JS:Script -->
+    <script>
+        function openGallery(id) {
+            closeAll();
+            const gallery = document.getElementById('gallery-' + id);
+            const EntourageSection = document.getElementById('EntourageSection' + id);
+            gallery.classList.add('Gallery--active');
+            EntourageSection.classList.add('EntourageSection--active');
+        }
+
+        function closeAll() {
+            const galleryActv = document.querySelector('.Gallery--active');
+            const EntourageSectionActv = document.querySelector('.EntourageSection--active');
+            if (galleryActv) {
+                galleryActv.classList.remove('Gallery--active');
+            }
+            if (EntourageSectionActv) {
+                EntourageSectionActv.classList.remove('EntourageSection--active');
+            }
+        }
+    </script>
+</body>
+
+</html>

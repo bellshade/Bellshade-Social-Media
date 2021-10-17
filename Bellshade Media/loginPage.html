@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <style>
+        body {
+            width: calc(50vw * 3=2vw * 2);
+            font-family: 'Raleway', sans-serif;
+            background-color: #C1E6FF;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Start:Login -->
+    <div class="login-wrapper">
+        <div class="login-text">
+            <button class="login-IconToggle"><i class="fas fa-chevron-down fa-1x"></i></button>
+            <div class="login-text-Tittle">
+                <a href="">Login</a>
+                <br>
+                <input type="text" placeholder="Email/username">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <i class="far fa-eye cursor-point eyeToggle" id="togglePassword"></i>
+                <br>
+                <button class="login-btn">Login</button>
+                <a href="signupPage.html" class="signup-link">Doesn't have an account yet?</a>
+            </div>
+        </div>
+        <div class="login-goTo-text">
+            <h1>Show us your <span>creative</span> side</h1>
+            <button>Explore Main Page</button>
+        </div>
+    </div>
+    <!-- End:Login -->
+
+
+
+
+    <!-- JS:Script -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+
+        var cta = document.querySelector(".login-IconToggle");
+        var check = 0;
+
+        cta.addEventListener('click', function (e) {
+            var text = e.target.nextElementSibling;
+            var loginText = e.target.parentElement;
+            text.classList.toggle('show-hide');
+            loginText.classList.toggle('expand');
+            if (check == 0) {
+                cta.innerHTML = "<i class=\"fas fa-chevron-up\"></i>";
+                check++;
+            } else {
+                cta.innerHTML = "<i class=\"fas fa-chevron-down\"></i>";
+                check = 0;
+            }
+        })
+    </script>
+
+</body>
+
+</html>

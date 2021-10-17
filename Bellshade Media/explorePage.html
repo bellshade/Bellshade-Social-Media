@@ -1,0 +1,370 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .gallery-lightboxes {
+      overflow-y: hidden;
+    }
+
+    .gallery-lightboxes .image-lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0ms ease-in-out;
+    }
+
+    .gallery-lightboxes .image-lightbox:target {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .gallery-lightboxes .image-lightbox:target .image-lightbox-wrapper {
+      opacity: 1;
+      transform: scale(1, 1) translateY(0);
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper {
+      transform: scale(0.95, 0.95) translateY(-30px);
+      transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+      opacity: 0;
+      margin: 1em auto;
+      max-width: 75%;
+      /* padding: 0.5em; */
+      display: flex;
+      flex-direction: row;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .close {
+      width: 1.5em;
+      height: 1.5em;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px white inset, 0 0 5px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      right: -1em;
+      top: -1em;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .close:before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 2px;
+      background: #fff;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -1px 0 0 -5px;
+      transform: rotate(-45deg);
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .close:after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 2px;
+      background: #fff;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -1px 0 0 -5px;
+      transform: rotate(45deg);
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .arrow-left {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .arrow-left:before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-bottom: 0;
+      border-right: 0;
+      border-radius: 4px 0 0 0;
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      cursor: pointer;
+      transform: rotate(-45deg) translateY(-50%);
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .arrow-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .arrow-right:before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-bottom: 0;
+      border-left: 0;
+      border-radius: 0 4px 0 0;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      cursor: pointer;
+      transform: rotate(45deg) translateY(-50%);
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .main-image {
+      margin: 0 auto;
+      max-width: 680px;
+      min-width: 600px;
+      object-fit: contain;
+      max-height: 70vh;
+      background-color: antiquewhite;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .image-description {
+      padding: 2% 3% 1% 3%;
+      max-width: 680px;
+      min-width: 500px;
+      display: block;
+    }
+
+    .gallery-lightboxes .image-lightbox .image-lightbox-wrapper .mini-profile-image {
+      width: 26px;
+      border-radius: 100%;
+      margin: 0px 8px;
+    }
+
+    .profile-explore-section {
+      display: flex;
+      /* flex-direction: column; */
+      justify-content: start;
+      align-items: center;
+    }
+
+    .profile-explore-section .profile-explore-name {
+      font-size: 17px;
+      font-family: 'Raleway', sans-serif;
+      color: black;
+    }
+
+    .profile-explore-section .profile-explore-showMore {
+      font-size: 14px;
+      font-family: 'Raleway', sans-serif;
+      color: cornflowerblue;
+      position: fixed;
+      right: 4%;
+      align-items: center;
+    }
+
+    .explore-dividers {
+      margin-top: 1rem;
+      width: 100%;
+      height: .5px;
+      background-color: rgba(0, 0, 0, 0.428);
+    }
+
+    .profile-description {
+      margin-top: 1rem;
+    }
+
+
+    .profile-text-description {
+      padding: 0px 10px 0px 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Start: navbar -->
+  <div class="container-navbar">
+    <div class="navbar-menu">
+      <div class="navbar-label">Menu</div>
+      <div class="navbar-spacer"></div>
+      <div class="navbar-item"><span><a href="landingPage.html">Home</a></span></div>
+      <div class="navbar-item"><span><a href="">Profile</a></span></div>
+      <div class="navbar-item"><span><a href="">Join Us</a></span></div>
+      <div class="navbar-item"><span><a href="http://manh21.github.io/LumiFanpage" target="__blank">Lumi
+            Only</a></span></div>
+      <div class="navbar-item"><span><a href="">Special Page</a></span></div>
+    </div>
+  </div>
+  <!-- End:navbar -->
+
+
+  <span class="TitlePage">
+    <h1>EXPLORE YOUR FAVORITE AUTHORS</h1>
+  </span>
+  <div class="exploreWaterfall">
+    <div class="waterfall">
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-2">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+      <a class="item" href="#lightbox-image-1">
+        <img src="https://source.unsplash.com/random" alt="">
+      </a>
+
+
+      <div class="gallery-lightboxes">
+        <div class="image-lightbox" id="lightbox-image-1">
+          <div class="image-lightbox-wrapper">
+            <a href="#" class="close"></a>
+            <img class="main-image" src="https://source.unsplash.com/random" alt="">
+            <div class="image-description">
+              <div class="profile-explore-section">
+                <img alt="please wait.." width="30" class="mini-profile-image" href="profilePageAllin.html"
+                  src="https://avatars.githubusercontent.com/u/7565578?s=280&v=4" />
+                <a href="profilePageAllin.html" class="profile-explore-name">Levianthz •</a>
+                <a href="profilePageAllin.html" class="profile-explore-showMore">Show More </a>
+              </div>
+              <div class="explore-dividers"></div>
+              <div class="profile-description">
+                <div class="profile-text-description">
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt expedita tempora animi totam vel
+                    minus, consequuntur, ut adipisci debitis incidunt officiis, nihil mollitia natus praesentium
+                    corrupti!
+                    Magnam blanditiis ex debitis distinctio esse eos, accusamus consequuntur maiores quia dolore fugiat
+                    alias! Iure mollitia tempore minima nulla quam ipsa delectus odit ad debitis repudiandae ipsam sed
+                    deserunt sequi illum beatae fuga illo quidem inventore repellendus, distinctio veniam neque
+                    voluptatum
+                    temporibus. Sequi quod, labore ipsum, id sed corrupti, optio temporibus rem est aliquid eius
+                    accusantium? Suscipit, magnam! Quod magnam ea suscipit labore aspernatur. Aspernatur blanditiis
+                    magni
+                    alias eveniet sapiente cupiditate asperiores ipsum pariatur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="image-lightbox" id="lightbox-image-2">
+          <div class="image-lightbox-wrapper">
+            <a href="#" class="close"></a>
+            <img class="main-image" src="https://source.unsplash.com/random" alt="">
+            <div class="image-description"><img alt="please wait.." width="50"
+                src="https://www.donkey.bike/wp-content/uploads/2020/12/user-member-avatar-face-profile-icon-vector-22965342-300x300.jpg" />
+              Cat staring at me Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ipsam rerum rem
+              reprehenderit ratione repudiandae velit iure doloribus possimus adipisci nihil maxime blanditiis, optio
+              officia esse facere fugiat amet nisi! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id,
+              dolorem!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- JScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const observer = new IntersectionObserver(f, {
+      threshold: [0, 1]
+    });
+
+    function f(entries) {
+      for (const entry of entries) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+          entry.target.classList.toggle("inbound", true)
+        } else {
+          entry.target.classList.toggle("inbound", false)
+        }
+      }
+    }
+
+    const itemEls = Array.from(document.querySelectorAll(".item"));
+    for (const itemEl of itemEls)
+      observer.observe(itemEl)
+  </script>
+
+</body>
+
+</html>

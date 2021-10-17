@@ -1,0 +1,512 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+    <style>
+        body {
+            width: calc(50vw * 3=2vw * 2);
+            font-family: 'Raleway', sans-serif;
+            background: white;
+        }
+    </style>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+        html body * {
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .gridywrap div[class*=gridy] {
+            background: #eee;
+            box-shadow: inset 0 0 0 1px #ddd;
+            padding: 15px;
+            float: left;
+            position: relative;
+        }
+
+        .gridywrap .gridy-1,
+        .gridywrap .gridy-2,
+        .gridywrap .gridy-3 {
+            width: 320px;
+            overflow: hidden;
+        }
+
+        .gridywrap .gridy-1 {
+            width: 100%;
+        }
+
+        .gridywrap .gridy-2 {
+            width: 100%;
+        }
+
+        .gridywrap .gridy-3 {
+            width: 100%;
+        }
+
+        .gridywrap .gridyhe-1 {
+            height: 320px;
+        }
+
+        .gridywrap .gridyhe-2 {
+            height: 320px;
+        }
+
+
+        @media screen and (min-width: 640px) {
+            .gridywrap .gridyhe-2 {
+                height: 320px;
+            }
+
+            .gridywrap {
+                width: 100%;
+            }
+
+            .gridywrap .gridy-1 {
+                width: 50%;
+            }
+
+            .gridywrap .gridy-2 {
+                width: 50%;
+            }
+
+            .gridywrap .gridy-3 {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .gridywrap .gridy-1 {
+                width: 33.3%;
+            }
+
+            .gridywrap .gridy-2 {
+                width: 66.6%;
+            }
+
+            .gridywrap .gridy-3 {
+                width: 100%;
+            }
+
+            .gridywrap .gridyhe-2 {
+                height: 640px;
+            }
+        }
+
+        /*styling*/
+        .gridywrap .gridimg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .gridywrap .gridimg img {
+            width: 100%;
+        }
+
+        .gridywrap .gridinfo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+            transition: all 0.8s;
+        }
+
+        .gridywrap .gridinfo h3 {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 130px 0 20px;
+            position: relative;
+        }
+
+        .gridywrap .gridinfo h3:after {
+            content: '';
+            width: 25px;
+            border-top: 4px solid #fff;
+            display: block;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .gridywrap .gridinfo .gridmeta {
+            transition-delay: 0.25s
+        }
+
+        .gridywrap .gridinfo .gridmeta p {
+            display: inline-block;
+            font-size: 13px;
+            color: #fff;
+            margin-bottom: 15px;
+            margin-right: 5px;
+        }
+
+        .gridywrap .gridinfo .gridmeta p.gridwho {
+            margin-left: 25px;
+        }
+
+        .gridywrap .gridinfo p.gridexerpt {
+            width: 60%;
+            margin: 0 auto;
+            line-height: 22px;
+            margin-bottom: 25px;
+            color: #fff;
+            transition-delay: 0.5s;
+        }
+
+        .gridywrap .gridinfo * {
+            opacity: 0;
+            transition: all 0.8s;
+        }
+
+        .gridywrap .gridinfo h3 {
+            opacity: 1;
+        }
+
+        .gridywrap .gridinfo .grid-btn {
+            color: #fff;
+            margin: 0 auto;
+            width: 75px;
+            height: 35px;
+            line-height: 35px;
+            border: 1px #FF8065 solid;
+            border-radius: 25px;
+            display: block;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        .gridywrap .gridinfo .grid-btn:hover {
+            width: 75px;
+            background-color: #FF8065;
+            opacity: 1;
+        }
+
+        .gridywrap .gridinfo .grid-btn span {
+            display: none;
+            opacity: 1;
+        }
+
+        .gridywrap .gridinfo .grid-btn:hover span {
+            display: inline;
+        }
+
+        .gridywrap .gridinfo .grid-btn:hover i {
+            display: none;
+        }
+
+        .gridywrap .gridinfo:hover * {
+            opacity: 0.7;
+        }
+
+        .gridywrap .gridinfo:hover p {
+            opacity: 1;
+        }
+
+        .gridywrap .gridinfo:hover {
+            background: rgba(14, 56, 84, 0.7);
+        }
+
+        .gridywrap .gridinfo:hover h3 {
+            margin-top: 70px;
+            opacity: 1;
+        }
+
+        .icon {
+            width: 12px;
+            height: 12px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Start:navbar -->
+    <div class="container-navbar">
+        <div class="navbar-menu">
+            <div class="navbar-label">Menu</div>
+            <div class="navbar-spacer"></div>
+            <div class="navbar-item"><span><a href="landingPage.html">Home</a></span></div>
+            <div class="navbar-item"><span><a href="">About</a></span></div>
+            <div class="navbar-item"><span><a href="">Join Us</a></span></div>
+            <div class="navbar-item"><span><a href="http://manh21.github.io/LumiFanpage" target="__blank">Lumi
+                        Only</a></span></div>
+            <div class="navbar-item"><span><a href="">Special Page</a></span></div>
+        </div>
+    </div>
+    <!-- End:navbar -->
+
+    <!-- Start:Profile -->
+    <div class="container-profile">
+        <div class="header-profile">
+        </div>
+        <div class="container-user-profile">
+            <div class="user-profile-group">
+                <div class="container-user-profile-photo">
+                    <img src="assets/Levianth_logo.png" alt="" class="user-profile-photo" draggable="false">
+                </div>
+                <div class="user-profile-detail">
+                    <h1>Levianth</h1>
+                    <div class="user-profile-roles">
+                        <div>
+                            <div><span>Police</span></div>
+                            <div><span>Police Fox</span></div>
+                            <div><span>Sakura - Art</span></div>
+                            <div><span>Current - Fansite</span></div>
+                            <div><span>Project - Modeling</span></div>
+                            <div><span>Pandora - Writing</span></div>
+                            <div><span>WhiteRose - Photoshop</span></div>
+                            <div><span>Horoscope - General</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-edit-profile">
+                    <button class="Apply-button">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:Profile -->
+
+    <!-- Start:Post -->
+    <div class="container-user-post">
+        <div class="user-post-title">
+            <hr>
+            <h2>Post</h2>
+            <hr>
+        </div>
+        <!-- Start:ALlinOne -->
+        <div class="container-allIn">
+            <div class="gridywrap">
+                <div class="gridy-2 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://ununsplash.imgix.net/photo-1415302199888-384f752645d0?q=75&fm=jpg&s=823bdcc1b7ad955f5180efd352561016)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://unsplash.imgix.net/photo-1417722009592-65fa261f5632?q=75&fm=jpg&s=553e7d8a753f4d7b2a4161dcbe9d9801)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-2">
+                    <div class="gridimg"
+                        style="background-image: url(https://ununsplash.imgix.net/photo-1416934625760-d56f5e79f6fe?q=75&fm=jpg&s=032ca37757b3dc1851661856b956a24c)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <div class="gridy-2 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://unsplash.imgix.net/uploads/1412862685615b0212e3d/5fcb0a55?q=75&fm=jpg&s=e003fb9a4e39e3c07e4a94f7e0ef3db8)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://ununsplash.imgix.net/photo-1418227165283-1595d13726cd?q=75&fm=jpg&s=cace1590a29be6d4d6db13c3ebd1ba72)">
+                        &nbsp;</div>
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://unsplash.imgix.net/uploads/1411589183965bdf6e141/5f468e98?q=75&fm=jpg&s=007333c388fb36767cbd152600bea6b8)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"> 
+                                <img src="assets/icons8-clock-24 (1).png" class="icon"> 18:02 PM 
+                                <img src="assets/icons8-calendar-24.png" class="icon"> February 18th 2004
+                            </p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <p>More</p></a>
+                    </div>
+                </div>
+                <!-- <div class="gridy-2 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://cdn.discordapp.com/attachments/760164855050403911/862631757269303326/Ep15_Frame_0900.jpg)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Bruce Wayne</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://cdn.discordapp.com/attachments/760164855050403911/862631757438124072/Ep2_Frame_510.jpg)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Harvey Dent</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-2">
+                    <div class="gridimg"
+                        style="background-image: url(https://ununsplash.imgix.net/photo-1416934625760-d56f5e79f6fe?q=75&fm=jpg&s=032ca37757b3dc1851661856b956a24c)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Clark Kent</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="gridy-2 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://unsplash.imgix.net/uploads/1412862685615b0212e3d/5fcb0a55?q=75&fm=jpg&s=e003fb9a4e39e3c07e4a94f7e0ef3db8)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Tony Stark</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://ununsplash.imgix.net/photo-1418227165283-1595d13726cd?q=75&fm=jpg&s=cace1590a29be6d4d6db13c3ebd1ba72)">
+                        &nbsp;</div>
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Steve Rogers</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="gridy-1 gridyhe-1">
+                    <div class="gridimg"
+                        style="background-image: url(https://unsplash.imgix.net/uploads/1411589183965bdf6e141/5f468e98?q=75&fm=jpg&s=007333c388fb36767cbd152600bea6b8)">
+                        &nbsp;</div>
+
+                    <div class="gridinfo">
+                        <h3>Item Title</h3>
+                        <div class="gridmeta">
+                            <p class="gridwhen"><i class="fa fa-clock-o"></i> 17:22 17th Feb 2015</p>
+                            <p class="gridwho"><i class="fa fa-user"></i> Natasha Romanoff</p>
+                        </div>
+                        <p class="gridexerpt">Lorem ipsum dolor set amet, some dummy content..</p>
+                        <a href="#" class="grid-btn grid-more"><span>More</span> <i class="fa fa-plus"></i></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- End:AllinOne -->
+    </div>
+    <!-- End:Post  -->
+
+
+    <!-- Start:Button Upload -->
+    <div class="user-button-upload">
+        <a href=""></a><button><i class="fa fa-plus"></i></a></button>
+    </div>
+    <!-- End:Button Upload -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+
+
+</body>
+
+</html>

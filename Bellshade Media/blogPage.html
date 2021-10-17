@@ -1,0 +1,184 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        body {
+            width: calc(50vw * 3=2vw * 2);
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            padding: 20px;
+            background-image: #C1E6FF;
+        }
+
+        .letter {
+            background: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin: 26px auto 0;
+            max-width: 950px;
+            min-height: 300px;
+            padding: 24px;
+            position: relative;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .letter:before,
+        .letter:after {
+            content: "";
+            height: 98%;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .letter:before {
+            background: #FFF;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            left: -11px;
+            top: 4px;
+            transform: rotate(-2.5deg);
+        }
+
+        .letter:after {
+            background: #FFF;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+            right: -8px;
+            top: 1px;
+            transform: rotate(1.4deg);
+        }
+
+        .contentText {
+            width: 100%;
+            display: block;
+            position: relative;
+        }
+
+        .TitleText {
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            font-size: x-large !important;
+            text-align: center;
+        }
+
+        .letter .contentText p {
+            font-size: medium;
+            line-height: 3vh;
+        }
+
+        .contentText .contentImg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .contentImg img {
+            position: absolute;
+            max-width: 100%;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="letter">
+        <div id="editor-container">
+        </div>
+        <!-- <div class="contentText">
+            <span class="TitleText">
+                <h1>Episode 1: NOVA</h1>
+            </span>
+            <p> &nbsp; &nbsp; Two Years ago Lumi Lanyue entered the miHoYo VTuber Program Tryouts. Little did
+                she know, she would soon become the star of District NOVA. It happened seemingly in
+                the blink of an eye. One minute she was an ordinary girl and the next minute she was an
+                idol.</p>
+            <p> &nbsp; &nbsp; Lumi was sitting in her 4th period English class staring blankly toward the
+                holoscreen. Her mind was deep in her thoughts. She thought of what it would be like
+                spending her days like Kizuna AI. In her head she was up on a virtual stage performing
+                for a live audience.
+            </p>
+            <p> &nbsp; &nbsp; For a moment she didn’t notice the news announcement that flared up on the screen.
+                For a moment she had thought she had slipped into a daydream. Lumi looked around to
+                ensure she was indeed awake and before she could realize it, she had become the newest
+                miHoYo sensation. She quickly gained popularity especially in District NOVA where she
+                lived. Upon completing high school she was scheduled to join miHoYo’s Exclusive NOVA
+                University.</p>
+        </div>
+        <div class="contentText">
+            <span class="TitleText">
+                <h1>Auvujh 1, 3022</h1>
+            </span>
+            <p>&nbsp; &nbsp; Daybreak came with the sound of an alarm. Lumi rolled around in her bed
+                before falling off landing on the floor with a thud. Turning off the alarm she
+                got up and started getting ready for her first day. Lumi lived on the 9th floor
+                penthouse of miHoYo’s private Vtuber Towers which was located in the
+                center of the District and had a spectacular view of the Western Sector.</p>
+            <p>&nbsp; &nbsp; With a toothbrush in her mouth she quickly got dressed. Lumi took a
+                minute before deciding on wearing her red and pink dress with a blue tie and
+                belt. Taking the toothbrush out of her mouth before rinsing, she grabbed her
+                bows and tied them onto the left side of her head. With that she grabbed her
+                bag and headed out into the elevator.
+            </p>
+            <p>&nbsp; &nbsp; The elevator itself could have easily been mistaken for a small penthouse
+                suite. It was an outdoor elevator that lined the eastern walls of the Tower.
+                There were several pieces of furniture all in an elegant purple Victorian style.
+                The elevator itself was easily larger than average master bedrooms. Lumi
+                liked to sit on the chairs toward the windows so she could watch the colors of
+                the District as the scenery flew around.</p>
+            <p>&nbsp; &nbsp; The District was large, but not as large as some of the more famous
+                Districts. The NOVA District was divided into various Sectors; each one
+                colorful in its own unique way. Lumi lived in the Central Sector which was
+                known for its involvement as miHoYo’s Vtuber center. Lumi didn’t mind the
+                occasional fan that came around asking for an autograph.</p>
+            <p>&nbsp; &nbsp; The elevator soon reached the ground floor and as usual a line of fans
+                awaited outside the tower. Lumi took out a handful of premade signatures
+                from her purse and started throwing them into the crowd. As usual, the crowd
+                let her pass and she went on her way. Lumi walked along the paved sidewalk.
+                Her eyes followed the road until they wandered around taking in deep
+                breaths filled with scenery. To her left, the Western Sector was a menagerie of
+                lights and colors. It was a world filled with the future; a place with technology
+                unlike anything imaginable.
+            </p>
+            <div class="contentImg">
+                <img src="https://cdn.discordapp.com/attachments/742971442617909248/752524464801185842/2020-09-07_s1.png"
+                    alt="">
+            </div>
+        </div> -->
+    </div>
+
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <!-- Initialize Quill editor -->
+    <script>
+        var quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: [
+                    [{
+                        header: [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block']
+                ]
+            },
+            placeholder: 'Write your story',
+            theme: 'snow' // or 'bubble'
+        });
+    </script>
+
+</body>
+
+</html>

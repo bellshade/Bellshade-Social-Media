@@ -1,0 +1,463 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <style>
+        body {
+            width: calc(50vw * 3=2vw * 2);
+            font-family: 'Raleway', sans-serif;
+            background: white;
+        }
+
+        .galleryPages {
+            width: 100%;
+            height: 28%;
+            min-height: 200px;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .galleryPage {
+            display: inline-block;
+            height: 100%;
+            position: relative;
+            flex: 1;
+            cursor: pointer;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.8s cubic-bezier(.4, .0, .3, 1);
+        }
+
+        .galleryPage__content {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000 center center no-repeat;
+            background-size: cover;
+            transition: transform 0.8s cubic-bezier(.4, .0, .3, 1);
+        }
+
+        .galleryPage__content:before,
+        .galleryPage__content:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 1;
+            transition: opacity 0.8s cubic-bezier(.4, .0, .3, 1);
+        }
+
+        .galleryPage__content:before {
+            background: inherit;
+            filter: grayscale(100%);
+        }
+
+        .galleryPage__content:after {
+            background: #000;
+            opacity: 0.3;
+        }
+
+        .galleryPage__title {
+            color: #FFF;
+            position: relative;
+            z-index: 1;
+            transition: color 0.8s cubic-bezier(.4, .0, .3, 1);
+            width: 100%;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .galleryPage {
+            overflow: hidden;
+            margin-right: -15%;
+        }
+
+        .galleryPage__content {
+            margin-left: -15vw;
+        }
+
+        .galleryPages {
+            pointer-events: none;
+        }
+
+        .galleryPage__title {
+            pointer-events: auto;
+        }
+
+        .galleryPages:hover .galleryPage__content::after {
+            opacity: 0.7;
+        }
+
+        .galleryPages:hover .galleryPage {
+            transform: translate3d(-7.5vw, 0, 0);
+        }
+
+        .galleryPage:hover~.galleryPage {
+            transform: translate3d(7.5vw, 0, 0);
+        }
+
+        .galleryPages .galleryPage:hover {
+            pointer-events: auto;
+        }
+
+        .galleryPages .galleryPage:hover .galleryPage__content {
+            transform: translate3d(7.5vw, 0, 0);
+        }
+
+        .galleryPages .galleryPage:hover .galleryPage__content::before,
+        .galleryPages .galleryPage:hover .galleryPage__content::after {
+            opacity: 0;
+        }
+
+        .galleryPages .galleryPage:first-child:hover {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .galleryPages .galleryPage:first-child:hover~.galleryPage {
+            transform: translate3d(15vw, 0, 0);
+        }
+
+        .galleryPages .galleryPage:first-child:hover .galleryPage__content {
+            transform: translate3d(7.5vw, 0, 0);
+        }
+
+        .galleryPages .galleryPage:last-child:hover .galleryPage__content {
+            transform: translate3d(3.75vw, 0, 0);
+        }
+
+        .galleryPage__title {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 2.5em;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 800px) {
+            .galleryPage__title {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .galleryPage__title {
+                font-size: 1.25em;
+            }
+        }
+    </style>
+
+    <style>
+        button,
+        .btn {
+            border: none;
+            outline: none;
+            background: #0E3854;
+            transition: 0.15s ease-in-out;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        button:hover,
+        button:focus,
+        .btn:hover,
+        .btn:focus,
+        input[type='submit']:hover,
+        input[type='submit']:focus {
+            background: #0E3854;
+        }
+
+        .has-tooltip:hover+.tooltip,
+        .has-tooltip:focus+.tooltip,
+        .has-tooltip.hover+.tooltip {
+            opacity: 1;
+            transform: translate(-50%, -100%) scale(1) rotate(0deg);
+            pointer-events: inherit;
+        }
+
+        .tooltip {
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.75) rotate(5deg);
+            transform-origin: bottom center;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.75);
+            text-align: center;
+            color: white;
+            transition: 0.15s ease-in-out;
+            opacity: 0;
+            width: 100%;
+            max-width: 100vw;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .tooltip.blue {
+            background: rgba(14, 56, 84, 0.7);
+;
+        }
+
+        .tooltip.blue:after {
+            border-top: 5px solid rgba(14, 56, 84, 0.75);
+        }
+
+        .tooltip:hover {
+            opacity: 1;
+            transform: translate(-50%, -100%) scale(1) rotate(0deg);
+            pointer-events: inherit;
+        }
+
+        .tooltip:after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            widtH: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top: 5px solid rgba(0, 0, 0, 0.75);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 100%);
+        }
+
+        .field {
+            position: relative;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Start:navbar -->
+    <div class="container-navbar">
+        <div class="navbar-menu">
+            <div class="navbar-label">Menu</div>
+            <div class="navbar-spacer"></div>
+            <div class="navbar-item"><span><a href="landingPage.html">Home</a></span></div>
+            <div class="navbar-item"><span><a href="">Profile</a></span></div>
+            <div class="navbar-item"><span><a href="">Join Us</a></span></div>
+            <div class="navbar-item"><span><a href="http://manh21.github.io/LumiFanpage" target="__blank">Lumi
+                        Only</a></span></div>
+            <div class="navbar-item"><span><a href="">Special Page</a></span></div>
+        </div>
+    </div>
+    <!-- End:navbar -->
+
+    <!-- Start:Profile -->
+    <div class="container-profile">
+        <div class="header-profile">
+        </div>
+        <div class="container-user-profile">
+            <div class="user-profile-group">
+                <div class="container-user-profile-photo">
+                    <img src="assets/Levianth_logo.png" alt="" class="user-profile-photo" draggable="false">
+                </div>
+                <div class="user-profile-detail">
+                    <h1>Levianth</h1>
+                    <div class="user-profile-roles">
+                        <div>
+                            <div><span>Police</span></div>
+                            <div><span>Police Fox</span></div>
+                            <div><span>Sakura - Art</span></div>
+                            <div><span>Current - Fansite</span></div>
+                            <div><span>Project - Modeling</span></div>
+                            <div><span>Pandora - Writing</span></div>
+                            <div><span>WhiteRose - Photoshop</span></div>
+                            <div><span>Horoscope - General</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-edit-profile">
+                    <button class="Apply-button">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:Profile -->
+
+    <!-- Start:Post -->
+    <div class="container-user-post">
+        <div class="user-post-title">
+            <hr>
+            <h2>Post</h2>
+            <hr>
+        </div>
+        <!-- Start:Gallery -->
+        <div class="galleryPages">
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=760);">
+                    <h3 class="galleryPage__title">A</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=786)">
+                    <h3 class="galleryPage__title">B</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=883)">
+                    <h3 class="galleryPage__title">C</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=550); background-position: 46% center;">
+                    <h3 class="galleryPage__title">D</h3>
+                </div>
+            </a>
+        </div>
+
+        <div class="galleryPages">
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=760);">
+                    <h3 class="galleryPage__title">A</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=786)">
+                    <h3 class="galleryPage__title">B</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=883)">
+                    <h3 class="galleryPage__title">C</h3>
+                </div>
+            </a>
+        </div>
+
+
+
+        <div class="galleryPages">
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=760);">
+                    <h3 class="galleryPage__title">A</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=786)">
+                    <h3 class="galleryPage__title">B</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=883)">
+                    <h3 class="galleryPage__title">C</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=550); background-position: 46% center;">
+                    <h3 class="galleryPage__title">D</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=821); background-position: 46% center;">
+                    <h3 class="galleryPage__title">E</h3>
+                </div>
+            </a>
+        </div>
+
+
+
+        <div class="galleryPages">
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=786)">
+                    <h3 class="galleryPage__title">A</h3>
+                </div>
+            </a>
+            <a href="#" class="galleryPage">
+                <div class="galleryPage__content"
+                    style="background-image: url(https://unsplash.it/1100/1100/?image=883)">
+                    <h3 class="galleryPage__title">B</h3>
+                </div>
+            </a>
+        </div>
+        <!-- End:Gallery -->
+    </div>
+    <!-- End:Post  -->
+
+
+    <!-- Start:Button Upload -->
+    <div class="user-button-upload">
+        <div class='center'>
+            <div class='field'>
+                <button class="has-tooltip"><a href=""><i class="fa fa-plus"></i></a></button>
+                <span class='tooltip blue'>
+                    <p>UPLOAD</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- End:Button Upload -->
+
+
+    <!-- JS:Script -->
+    <script>
+        const app = (() => {
+            let body;
+            let menu;
+            let menuItems;
+
+            const init = () => {
+                body = document.querySelector('body');
+                menu = document.querySelector('.menu-icon');
+                menuItems = document.querySelectorAll('.nav__list-item');
+                applyListeners();
+            };
+
+            const applyListeners = () => {
+                menu.addEventListener('click', () => toggleClass(body, 'nav-active'));
+            };
+
+            const toggleClass = (element, stringClass) => {
+                if (element.classList.contains(stringClass)) element.classList.remove(stringClass);
+                else element.classList.add(stringClass);
+            };
+
+            init();
+        })();
+    </script>
+
+
+
+
+</body>
+
+</html>
